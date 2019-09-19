@@ -77,7 +77,7 @@ VECTOR createVector()
 
 }
 
-void dotProduct(MATRIX a, MATRIX b, MATRIX* result)
+void dotProduct(MATRIX a, MATRIX b, MATRIX result)
 {
 
 	int i;
@@ -90,7 +90,8 @@ void dotProduct(MATRIX a, MATRIX b, MATRIX* result)
 		for (j = 0; j < 3; j++) //int j is used as the column
 		{
 
-			(*result)[i][j] = (a[i][0] * b[0][j]) + (a[i][1] * b[1][j]) + (a[i][2] * b[2][j]); //Calculate dot product for ith row jth column
+			//Calculate dot product for ith row jth column
+			result[i][j] = (a[i][0] * b[0][j]) + (a[i][1] * b[1][j]) + (a[i][2] * b[2][j]);
 
 		}
 
@@ -98,7 +99,7 @@ void dotProduct(MATRIX a, MATRIX b, MATRIX* result)
 
 }
 
-void matrixAdd(MATRIX a, MATRIX b, MATRIX* result)
+void matrixAdd(MATRIX a, MATRIX b, MATRIX result)
 {
 
 	int i;
@@ -110,7 +111,7 @@ void matrixAdd(MATRIX a, MATRIX b, MATRIX* result)
 		for (j = 0; j < 3; j++)//Column
 		{
 
-			(*result)[i][j] = a[i][j] + b[i][j];
+			result[i][j] = a[i][j] + b[i][j];
 
 		}
 
@@ -118,7 +119,7 @@ void matrixAdd(MATRIX a, MATRIX b, MATRIX* result)
 
 }
 
-void matrixSubtract(MATRIX a, MATRIX b, MATRIX* result)
+void matrixSubtract(MATRIX a, MATRIX b, MATRIX result)
 {
 
 	int i;
@@ -130,7 +131,7 @@ void matrixSubtract(MATRIX a, MATRIX b, MATRIX* result)
 		for (j = 0; j < 3; j++)//Column
 		{
 
-			(*result)[i][j] = a[i][j] - b[i][j];
+			result[i][j] = a[i][j] - b[i][j];
 
 		}
 
@@ -138,7 +139,7 @@ void matrixSubtract(MATRIX a, MATRIX b, MATRIX* result)
 
 }
 
-void matrixScalarMultiply(MATRIX a, int b, MATRIX* result)
+void matrixScalarMultiply(MATRIX a, int b, MATRIX result)
 {
 
 	int i;
@@ -150,7 +151,7 @@ void matrixScalarMultiply(MATRIX a, int b, MATRIX* result)
 		for (j = 0; j < 3; j++)//Column
 		{
 
-			(*result)[i][j] = a[i][j] * b;
+			result[i][j] = a[i][j] * b;
 
 		}
 
@@ -158,16 +159,16 @@ void matrixScalarMultiply(MATRIX a, int b, MATRIX* result)
 
 }
 
-void crossProduct(VECTOR a, VECTOR b, VECTOR* result)
+void crossProduct(VECTOR a, VECTOR b, VECTOR result)
 {
 
-	(*result)[0] = (a[1] * b[2]) - (a[2] * b[1]);
-	(*result)[1] = (a[0] * b[2]) - (a[2] * b[0]);
-	(*result)[2] = (a[0] * b[1]) - (a[1] * b[0]);
+	result[0] = (a[1] * b[2]) - (a[2] * b[1]);
+	result[1] = (a[2] * b[0]) - (a[0] * b[2]);
+	result[2] = (a[0] * b[1]) - (a[1] * b[0]);
 
 }
 
-void vectorScalarMultiply(VECTOR a, int b, VECTOR* result)
+void vectorScalarMultiply(VECTOR a, int b, VECTOR result)
 {
 
 	int i;
@@ -175,7 +176,35 @@ void vectorScalarMultiply(VECTOR a, int b, VECTOR* result)
 	for (i = 0; i < 3; i++)
 	{
 
-			(*result)[i] = a[i] * b;
+			result[i] = a[i] * b;
+
+	}
+
+}
+
+void vectorAdd(VECTOR a, VECTOR b, VECTOR result)
+{
+
+	int i;
+
+	for (i = 0; i < 3; i++)
+	{
+
+		result[i] = a[i] + b[i];
+
+	}
+
+}
+
+void vectorSubtract(VECTOR a, VECTOR b, VECTOR result)
+{
+
+	int i;
+
+	for (i = 0; i < 3; i++)
+	{
+
+		result[i] = a[i] - b[i];
 
 	}
 
