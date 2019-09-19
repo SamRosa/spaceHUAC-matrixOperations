@@ -6,7 +6,6 @@ Date: 9/10/2019
 
 *********************************************/
 
-#include <stdio.h>
 #include "matrix.h"
 
 void matrixPrint(int** matrix);
